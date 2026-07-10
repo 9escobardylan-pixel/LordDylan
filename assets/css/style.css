@@ -736,15 +736,23 @@ a { color: inherit; }
 }
 
 .what-i-do li {
+  position: relative;
   font-size: 15px;
   color: var(--text-body);
   margin-bottom: 10px;
+  padding-left: 16px;
   break-inside: avoid;
 }
 
 .what-i-do li::before {
-  content: "— ";
-  color: var(--red);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
 }
 
 /* ============ EXPERIENCE ============ */

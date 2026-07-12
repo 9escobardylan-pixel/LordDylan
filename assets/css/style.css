@@ -594,7 +594,10 @@ a { color: inherit; }
    etc.) -- top gets extra room so a page that starts mid-flow never
    lands its first line flush against the physical page edge. */
 @page {
-  margin: 0.6in 0.4in 0.4in 0.4in;
+  margin-top: 0.75in;
+  margin-right: 0.4in;
+  margin-bottom: 0.4in;
+  margin-left: 0.4in;
 }
 
 @media print {

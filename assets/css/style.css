@@ -589,6 +589,14 @@ a { color: inherit; }
 }
 
 /* ============ PRINT / PDF EXPORT ============ */
+/* Applies whenever this stylesheet paginates content, regardless of
+   which tool renders the PDF (browser print dialog, headless export,
+   etc.) -- top gets extra room so a page that starts mid-flow never
+   lands its first line flush against the physical page edge. */
+@page {
+  margin: 0.6in 0.4in 0.4in 0.4in;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;

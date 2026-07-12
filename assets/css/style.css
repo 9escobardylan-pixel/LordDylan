@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ArchivoBlack-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/Inter-Variable.woff2') format('woff2');
+}
+
 :root {
   --bg: #141416;
   --bg-card: #1c1a1f;
@@ -276,6 +292,8 @@ a { color: inherit; }
   grid-template-columns: 1fr;
   gap: 14px;
   margin: 28px 0 20px;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .stat-card {
@@ -315,6 +333,8 @@ a { color: inherit; }
   grid-template-columns: 1fr;
   gap: 20px;
   margin-top: 24px;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .gallery-item {
@@ -365,6 +385,8 @@ a { color: inherit; }
   grid-template-columns: 1fr;
   gap: 16px;
   margin: 24px 0 24px;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .day-card {
@@ -416,6 +438,11 @@ a { color: inherit; }
   color: var(--text-dim);
   font-size: 15px;
   margin: 28px 0 0;
+}
+
+.next-steps {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 /* ============ BIO / FOOTER ============ */
@@ -582,10 +609,14 @@ a { color: inherit; }
 
   .section,
   .callout,
+  .stat-grid,
   .stat-card,
+  .day-grid,
   .day-card,
   .otc-card,
+  .gallery,
   .gallery-item,
+  .next-steps,
   .bio-footer {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -595,6 +626,13 @@ a { color: inherit; }
     break-after: avoid !important;
     page-break-after: avoid !important;
   }
+
+  /* A printed page is narrower than the 1000px screen breakpoint that
+     triggers the 3-column layout, so force the compact layout here too
+     -- otherwise the 2-column fallback makes these sections taller than
+     one page and forces a mid-section split despite break-inside: avoid. */
+  .gallery { grid-template-columns: repeat(3, 1fr) !important; }
+  .day-grid { grid-template-columns: repeat(3, 1fr) !important; }
 
   .hero-headline { font-size: 26px !important; }
   .section-title { font-size: 20px !important; }

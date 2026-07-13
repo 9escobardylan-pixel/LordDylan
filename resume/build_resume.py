@@ -109,6 +109,15 @@ def job_header(title_org, dates):
     return p
 
 
+def numbered_line(rank, text):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_after = Pt(2)
+    p.paragraph_format.left_indent = Inches(0.2)
+    add_run(p, f"{rank}.  ", bold=True, size=10.5)
+    add_run(p, text, size=10.5)
+    return p
+
+
 # ================= HEADER: NAME + CONTACT =================
 name_p = doc.add_paragraph()
 name_p.paragraph_format.space_after = Pt(2)
@@ -130,19 +139,18 @@ add_bottom_border(contact_p, size=8, space=6)
 # ================= SUMMARY =================
 section_header("Summary")
 body_paragraph(
-    "Freelance creative strategist specializing in Meta ad hook/script writing, static and "
-    "AI-video ad production, and ad research for DTC brands. Built and grew a YouTube channel "
-    "(@BillionaireHustler) to 700K+ lifetime views and 800+ subscribers with zero ad spend "
-    "(91%+ like ratio, 42K-view top clip) — applying direct-response and audience-retention "
-    "principles to client ad work."
+    "Direct-response creative strategist specializing in Meta ad hook/script writing, static and "
+    "AI-video ad production, and ad research for DTC brands. Grew a YouTube channel to 700K+ "
+    "lifetime views and 800+ subscribers with zero ad spend (91%+ like ratio, 42K-view top clip), "
+    "applying audience-retention and hook-writing principles directly to client ad work."
 )
 
-# ================= EXPERIENCE =================
-section_header("Experience")
-job_header("Freelance Creative Strategist — Self-Employed (Remote)", "May 2026 – June 2026")
+# ================= CLIENT EXPERIENCE =================
+section_header("Client Experience")
+job_header("Freelance Creative Strategist — Self-Employed (Remote)", "May 2025 – Present")
 bullet(
     "Engaged by a multi-brand DTC portfolio (Tailored Canvases, WonderMe, TellMyTale) to build "
-    "full ad script systems across three brands in parallel."
+    "full ad script systems across three brands in parallel (May–June 2026)."
 )
 bullet(
     "Tailored Canvases: Delivered three production-ready ad scripts with beat-by-beat structure "
@@ -160,12 +168,30 @@ bullet(
     "full payment without conceding to an off-platform reduced settlement."
 )
 
-# ================= ADDITIONAL PROJECTS =================
-section_header("Additional Projects")
-bullet("Brand/VOC research for Enhanced Human, Outdoor Vitals, Beam, ManTalks, and Hatch.")
+# ================= TRAINING PROJECT =================
+section_header("Training Project — Copy Millions Blueprint")
 bullet(
-    "Ad creative and copy across DTC verticals: electrolyte drinks, travel gear, cosmetics, "
-    "wellness, and consumer products (spec + client work)."
+    "Outdoor Vitals (ultralight backpacking gear) case study: Built a full brand research "
+    "document and produced 5 ad scripts and static ad concepts as an applied training project "
+    "within the Copy Millions Blueprint coaching program."
+)
+
+# ================= ADDITIONAL SPEC WORK =================
+section_header("Additional Spec Work (Self-Directed)")
+bullet(
+    "Spec ad development across DTC verticals: electrolyte drinks, travel gear, cosmetics, "
+    "wellness, and other consumer products — building buyer personas, hook libraries, and full "
+    "video scripts."
+)
+
+# ================= CONTENT CREATION =================
+section_header("Content Creation")
+job_header("YouTube Channel — @BillionaireHustler", "October 2023 – Present")
+bullet("Grew channel to 700K+ lifetime views and 800+ subscribers with zero ad spend.")
+bullet("Achieved a 91%+ like ratio and a top-performing clip at 42K views.")
+bullet(
+    "Applied direct-response and retention principles learned from running the channel to "
+    "client ad strategy work."
 )
 
 # ================= EDUCATION / TRAINING =================
@@ -175,11 +201,11 @@ bullet("Eagle Scout")
 
 # ================= SKILLS =================
 section_header("Skills")
-body_paragraph(
-    "Meta ad strategy, direct-response copywriting, hook writing, script writing, AI video ad "
-    "production, static ad design, VOC/audience research, YouTube content strategy, DTC brand research",
-    space_after=0,
-)
+numbered_line(1, "Meta ad hook & script writing")
+numbered_line(2, "Direct-response copywriting")
+numbered_line(3, "AI-video and static ad production")
+numbered_line(4, "Audience/VOC research")
+numbered_line(5, "YouTube content strategy & audience retention")
 
 doc.save("/home/user/LordDylan/resume/Dylan_Escobar_Resume.docx")
 print("Saved resume.")

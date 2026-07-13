@@ -177,6 +177,16 @@
   margin: 0 0 10px;
 }
 
+.case-hook {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.5;
+  border-left: 2px solid var(--red);
+  padding-left: 12px;
+  margin: 0 0 14px;
+}
+
 .case-result {
   font-size: 14px;
   line-height: 1.55;

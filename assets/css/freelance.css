@@ -89,13 +89,6 @@
   padding: 5px 14px;
 }
 
-/* ============ PROOF STRIP ============ */
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
 /* ============ OFFER MECHANIC ============ */
 .mechanic-grid {
   display: grid;
@@ -285,14 +278,9 @@
   .nav-links a:not(.btn) { border-bottom: 1px solid var(--hairline); }
   .nav-links .btn-nav { margin: 14px 20px; }
 
-  .proof-grid { grid-template-columns: repeat(2, 1fr); }
   .mechanic-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .case-grid { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .fl-footer-inner { flex-direction: column; align-items: flex-start; }
-}
-
-@media (max-width: 480px) {
-  .proof-grid { grid-template-columns: 1fr 1fr; }
 }

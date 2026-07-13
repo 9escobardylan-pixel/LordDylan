@@ -104,12 +104,54 @@
   margin: 20px 0 28px;
 }
 
-.pricing-note {
-  margin-top: 24px;
-  padding: 18px 20px;
-  border: 1px dashed #ffffff28;
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.pricing-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--hairline);
   border-radius: 10px;
+  padding: 26px 24px;
+}
+
+.pricing-tier {
+  font-family: 'Archivo Black', sans-serif;
+  color: var(--white);
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+
+.pricing-price {
+  font-family: 'Archivo Black', sans-serif;
+  color: var(--red);
+  font-size: 28px;
+  margin: 0 0 14px;
+}
+
+.pricing-price span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--text-dim);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pricing-desc {
   font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0 0 16px;
+}
+
+.pricing-note {
+  margin-top: 20px;
+  font-size: 13.5px;
+  font-style: italic;
   color: var(--text-dim);
 }
 
@@ -235,6 +277,7 @@
 
   .proof-grid { grid-template-columns: repeat(2, 1fr); }
   .mechanic-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
   .case-grid { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .fl-footer-inner { flex-direction: column; align-items: flex-start; }

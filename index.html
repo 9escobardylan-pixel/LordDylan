@@ -210,6 +210,8 @@
     background: var(--bg-2); border: 1px solid var(--line);
   }
   .slide-media video { width: 100%; height: 100%; object-fit: cover; }
+  .slide-media--static { display: grid; place-items: center; background: #efede9; }
+  .slide-media--static img { width: 100%; height: 100%; object-fit: contain; }
   .slide-media--brief { display: flex; flex-direction: column; justify-content: center; padding: 28px; gap: 18px; }
   .brief-label { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
   .brief-line span { display: block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
@@ -285,7 +287,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-    <a class="btn btn--sm" href="[CALENDLY LINK]">Book a call</a>
+    <a class="btn btn--sm" href="https://calendly.com/9escobar-dylan/free-15-minute-pre-project-call-clone">Book a call</a>
   </div>
 </nav>
 
@@ -299,10 +301,10 @@
       <h1>A steady pipeline of Meta ads worth <span class="accent">testing</span>.</h1>
       <p class="lead">I turn customer research, account data, and your winning creative into a constant flow of ad concepts, hooks, scripts, statics, and AI-video ads, then let the numbers decide what earns another round.</p>
       <div class="hero-actions">
-        <a class="btn" href="[CALENDLY LINK]">Challenge my best ad &rarr;</a>
+        <a class="btn" href="https://calendly.com/9escobar-dylan/free-15-minute-pre-project-call-clone">Challenge my best ad &rarr;</a>
         <a class="btn btn--ghost" href="#offers">How the challenge works</a>
       </div>
-      <p class="hero-note">Start with 3 hooks against your current winner. No retainer required.</p>
+      <p class="hero-note">Start with 3 hooks against your current winner. I fund the test.</p>
     </div>
     <div class="ad-stack" aria-hidden="true">
       <div class="phone"><img src="assets/img/wonderme-blue-poster.jpg" alt=""><span class="phone-label">WonderMe</span></div>
@@ -380,17 +382,18 @@
         <span class="tag">Start here</span>
         <h2>The 3-Hook Control Challenge</h2>
         <p style="margin-top: 20px;">Give me your current best-performing ad and I&rsquo;ll build 3 challengers to run against it.</p>
-        <p>Same product, same audience, same budget. The only variable is the creative, so the result is clean.</p>
-        <p class="guarantee"><strong>If mine lose,</strong> I&rsquo;ll use the same test budget to run a Meta ad embarrassing myself for you.</p>
+        <p>Same product, same audience, same budget, and I pay for it. The only variable is the creative, so the result is clean.</p>
+        <p class="guarantee"><strong>I fund the test.</strong> If mine lose, I&rsquo;ll use that same budget to run a Meta ad embarrassing myself for you. Your account and your money stay out of it.</p>
       </div>
       <div>
         <ul class="terms">
           <li><span>You provide</span><span>Your current control ad</span></li>
           <li><span>I deliver</span><span>3 challenger hooks</span></li>
           <li><span>The test</span><span>Head-to-head on Meta</span></li>
+          <li><span>Test budget</span><span>On me</span></li>
           <li><span>If I lose</span><span>Public, paid-for humility</span></li>
         </ul>
-        <a class="btn" href="[CALENDLY LINK]" style="margin-top: 28px; width: 100%;">Challenge my control &rarr;</a>
+        <a class="btn" href="https://calendly.com/9escobar-dylan/free-15-minute-pre-project-call-clone" style="margin-top: 28px; width: 100%;">Challenge my control &rarr;</a>
       </div>
     </div>
   </div>
@@ -414,7 +417,7 @@
           <li><span>Account review</span><span>Ongoing</span></li>
           <li><span>Iteration</span><span>Every week</span></li>
         </ul>
-        <a class="btn" href="[CALENDLY LINK]" style="margin-top: 28px; width: 100%;">Book a call &rarr;</a>
+        <a class="btn" href="https://calendly.com/9escobar-dylan/free-15-minute-pre-project-call-clone" style="margin-top: 28px; width: 100%;">Book a call &rarr;</a>
       </div>
     </div>
 
@@ -504,7 +507,37 @@
         <p class="slide-desc">Brief &rarr; editor direction &rarr; live on Meta</p>
       </div>
     </article>
-    <!-- TODO: add Sean Ferres and Auna Beauty ads here (copy a .slide block, swap poster + video) -->
+    <article class="slide">
+      <div class="slide-media slide-media--static">
+        <img src="assets/img/auna-static-1.jpg" alt="Auna Beauty static image ad" loading="lazy">
+      </div>
+      <div class="slide-info">
+        <p class="slide-client">Auna Beauty <em>Static 01</em></p>
+        <p class="slide-desc">Concept &rarr; copy &rarr; static image ad</p>
+      </div>
+    </article>
+    <article class="slide">
+      <div class="slide-media slide-media--static">
+        <img src="assets/img/auna-static-2.jpg" alt="Auna Beauty static image ad" loading="lazy">
+      </div>
+      <div class="slide-info">
+        <p class="slide-client">Auna Beauty <em>Static 02</em></p>
+        <p class="slide-desc">Concept &rarr; copy &rarr; static image ad</p>
+      </div>
+    </article>
+    <article class="slide">
+      <div class="slide-media slide-media--brief">
+        <p class="brief-label">Static ad sprint &middot; Ad 01 of 3</p>
+        <p class="brief-line"><span>Headline</span>Half the skill. Double the retainer.</p>
+        <p class="brief-line"><span>Format</span>Faceless news / tabloid static.</p>
+        <p class="brief-line"><span>Awareness</span>Solution aware.</p>
+      </div>
+      <div class="slide-info">
+        <p class="slide-client">Sean Ferres</p>
+        <p class="slide-desc">3 static concepts: angle, headline &amp; primary text</p>
+      </div>
+    </article>
+    <!-- TODO: Auna Beauty videos (040 Batch DE-022 H1, 042 Batch DE-027 H1) — compress to under ~8 MB, add to assets/video/, copy a video .slide block above. -->
   </div>
 </section>
 
@@ -544,7 +577,7 @@
       <article class="card">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <h3>A clean head-to-head test</h3>
-        <p>Three challengers against your control, same conditions. If mine lose, I run a Meta ad embarrassing myself.</p>
+        <p>Three challengers against your control, same conditions, on my budget. If mine lose, I run a Meta ad embarrassing myself.</p>
       </article>
       <article class="card">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
@@ -560,8 +593,8 @@
   <div class="wrap">
     <p class="eyebrow">Let&rsquo;s talk</p>
     <h2 class="h2">Send me your best ad. I&rsquo;ll bring three that want its job.</h2>
-    <p class="lead">A 20-minute call to look at your account, your control, and whether we&rsquo;re a fit. You&rsquo;ll leave with ideas either way.</p>
-    <a class="btn" href="[CALENDLY LINK]">Book a call on Calendly &rarr;</a>
+    <p class="lead">A free 15-minute call to look at your account, your control, and whether we&rsquo;re a fit. You&rsquo;ll leave with ideas either way.</p>
+    <a class="btn" href="https://calendly.com/9escobar-dylan/free-15-minute-pre-project-call-clone">Book a call on Calendly &rarr;</a>
   </div>
 </section>
 

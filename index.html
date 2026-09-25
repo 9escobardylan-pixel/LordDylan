@@ -3,357 +3,528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Give Me 7 Days: I'll Out-Run Your Best Ad or It Costs You Nothing</title>
-<meta name="description" content="Give me 7 days and I'll out-run your best ad or it costs you nothing. A live creative audition for DTC brands running paid Meta ads.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<title>Dylan Escobar · Creative Strategist for DTC Brands</title>
+<meta name="description" content="Creative strategist for DTC brands. Customer research, account data, and winning creative turned into a steady pipeline of Meta ad concepts, hooks, scripts, statics, and AI-video ads.">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-2: #4a4a4a;
+    --ink-3: #8a8a8a;
+    --line: #e7e5e1;
+    --bg: #ffffff;
+    --bg-2: #f7f6f3;
+    --accent: #c2410c;
+    --accent-ink: #ffffff;
+    --radius: 14px;
+    --wrap: 1120px;
+    --gutter: 20px;
+    --space: 88px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { line-height: 1.12; letter-spacing: -0.02em; margin: 0; font-weight: 700; }
+  p { margin: 0; }
+
+  .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+  .section { padding: var(--space) 0; }
+  .section--tint { background: var(--bg-2); }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .h2 { font-size: clamp(30px, 5.2vw, 46px); max-width: 20ch; }
+  .lead { font-size: clamp(18px, 2.2vw, 20px); color: var(--ink-2); max-width: 60ch; margin-top: 20px; }
+  .accent { color: var(--accent); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 0 26px; border-radius: 999px; white-space: nowrap;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(194, 65, 12, .22); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn--ghost:hover { box-shadow: none; border-color: var(--ink); }
+  .btn--sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .88);
+    -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 400px) { .brand span { display: none; } }
+  .brand span { color: var(--ink-3); font-weight: 500; }
+  .nav-links { display: none; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  .nav-links a { text-decoration: none; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 72px 0 64px; }
+  .hero h1 { font-size: clamp(38px, 8vw, 72px); max-width: 16ch; }
+  .hero .lead { margin-top: 24px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-3); }
+
+  /* Proof strip */
+  .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0; }
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .stat-num { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .stat-label { font-size: 14px; color: var(--ink-2); margin-top: 8px; line-height: 1.4; }
+  .clients { margin-top: 32px; padding-top: 24px; border-top: 1px dashed var(--line); font-size: 14px; color: var(--ink-2); }
+  .clients strong { display: block; color: var(--ink-3); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+  .clients ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; font-weight: 600; color: var(--ink); font-size: 16px; }
+
+  /* Cards */
+  .grid-3 { display: grid; gap: 16px; margin-top: 48px; }
+  .card {
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px;
+  }
+  .card-num { font-size: 13px; font-weight: 600; color: var(--ink-3); letter-spacing: .08em; }
+  .card h3 { font-size: 22px; margin: 14px 0 10px; }
+  .card p { color: var(--ink-2); font-size: 16px; }
+  .card ul { margin: 16px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15px; }
+  .card li + li { margin-top: 6px; }
+
+  /* Offers */
+  .offer {
+    display: grid; gap: 32px;
+    border: 1px solid var(--line); border-radius: calc(var(--radius) + 6px);
+    padding: 32px 24px; background: var(--bg);
+  }
+  .offer--feature { border-color: var(--ink); }
+  .offer h2 { font-size: clamp(28px, 4.6vw, 40px); }
+  .offer .tag {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px; background: var(--bg-2); color: var(--ink-2); margin-bottom: 18px;
+  }
+  .offer-body p + p { margin-top: 16px; }
+  .offer-body p { color: var(--ink-2); }
+  .terms { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .terms li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .terms li span:first-child { color: var(--ink-3); }
+  .terms li span:last-child { font-weight: 600; text-align: right; }
+  .guarantee {
+    margin-top: 20px; padding: 18px 20px; border-left: 3px solid var(--accent);
+    background: var(--bg-2); border-radius: 0 10px 10px 0; font-size: 15px; color: var(--ink);
+  }
+  .price { font-size: clamp(36px, 6vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .price small { font-size: 18px; color: var(--ink-3); font-weight: 500; letter-spacing: 0; }
+  .upsell {
+    margin-top: 16px; padding: 24px; border-radius: var(--radius);
+    border: 1px dashed var(--ink-3); display: grid; gap: 10px;
+  }
+  .upsell h3 { font-size: 19px; }
+  .upsell p { color: var(--ink-2); font-size: 15px; }
+
+  /* Process */
+  .steps { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 0; counter-reset: step; }
+  .steps li { padding: 28px 0; border-top: 1px solid var(--line); display: grid; gap: 10px; }
+  .steps li:last-child { border-bottom: 1px solid var(--line); }
+  .step-num { font-size: 14px; font-weight: 700; color: var(--accent); }
+  .steps h3 { font-size: 22px; }
+  .steps p { color: var(--ink-2); max-width: 60ch; }
+
+  /* Carousel (CSS scroll-snap, no JS) */
+  .carousel {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 78%;
+    gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 8px var(--gutter) 24px; margin-top: 40px;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+    overscroll-behavior-x: contain;
+  }
+  .carousel::-webkit-scrollbar { height: 6px; }
+  .carousel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .slide { scroll-snap-align: start; display: flex; flex-direction: column; }
+  .slide-media {
+    aspect-ratio: 9 / 16; border-radius: var(--radius); overflow: hidden;
+    background: var(--bg-2); border: 1px solid var(--line);
+  }
+  .slide-media video { width: 100%; height: 100%; object-fit: cover; }
+  .slide-media--brief { display: flex; flex-direction: column; justify-content: center; padding: 28px; gap: 18px; }
+  .brief-label { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .brief-line span { display: block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .brief-line { font-size: 17px; line-height: 1.4; }
+  .slide-info { padding: 16px 4px 0; }
+  .slide-client { font-weight: 700; }
+  .slide-client em { font-style: normal; font-weight: 500; color: var(--ink-3); margin-left: 6px; font-size: 14px; }
+  .slide-desc { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .carousel-hint { font-size: 14px; color: var(--ink-3); margin-top: 8px; }
+
+  /* About */
+  .about { display: grid; gap: 40px; align-items: start; }
+  .about-photo { border-radius: calc(var(--radius) + 6px); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; max-width: 420px; background: var(--bg-2); }
+  .about-copy p { font-size: clamp(18px, 2.2vw, 21px); color: var(--ink); line-height: 1.55; }
+  .about-copy p + p { margin-top: 20px; }
+  .about-copy .quiet { font-size: 16px; color: var(--ink-2); }
+  .traits { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .traits li { font-size: 14px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); }
+
+  /* Testimonials */
+  .quote { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+  .quote blockquote { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
+  .quote figcaption { font-size: 14px; color: var(--ink-3); }
+  .quote figcaption strong { display: block; color: var(--ink); font-weight: 600; }
+  .placeholder { color: var(--ink-3); font-style: italic; }
+
+  /* Final CTA */
+  .final { text-align: center; padding: calc(var(--space) + 16px) 0; }
+  .final .h2 { margin: 0 auto; max-width: 18ch; }
+  .final .lead { margin: 20px auto 0; }
+  .final .btn { margin-top: 36px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; color: var(--ink-3); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: var(--ink-2); }
+
+  /* ---------- Tablet ---------- */
+  @media (min-width: 720px) {
+    :root { --gutter: 32px; --space: 112px; }
+    .proof-grid { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .carousel { grid-auto-columns: 40%; }
+    .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .steps li, .steps li:last-child { border-bottom: 0; border-top: 2px solid var(--ink); padding-top: 24px; }
+    .offer { padding: 48px; }
+  }
+
+  /* ---------- Desktop ---------- */
+  @media (min-width: 960px) {
+    .nav-links { display: flex; }
+    .hero { padding: 120px 0 104px; }
+    .offer { grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
+    .carousel {
+      grid-auto-columns: calc((min(100vw, var(--wrap)) - 2 * var(--gutter) - 3 * 16px) / 4);
+      padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+      padding-right: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+      scroll-padding: 0 max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+    }
+    .about { grid-template-columns: 5fr 7fr; gap: 72px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="grain"></div>
-
-<!-- ============ THREE REASONS NOT TO HIRE ME ============ -->
-<header class="reasons-hero">
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
   <div class="wrap">
-    <p class="kicker">Before you keep reading</p>
-    <h1 class="reasons-headline">Three reasons you should <span class="accent">not</span> hire me.</h1>
-    <p class="lede">Most applications open by begging. I'd rather be straight with you. There are a few kinds of teams I'm genuinely bad for and I'd rather you learn that on line one than three weeks into a contract. So before the pitch: here's who should close this and move on.</p>
+    <a class="brand" href="#top">Dylan Escobar <span>/ Creative Strategy</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn btn--sm" href="[CALENDLY LINK]">Book a call</a>
+  </div>
+</nav>
 
-    <ol class="steps reasons-list">
-      <li>
-        <span class="step-num">01</span>
-        <div>
-          <h3>If creative has to clear five approvals before it goes live, skip me.</h3>
-          <p>My entire edge is speed: write, launch, read the data, cut what's dead, double down on what works, repeat. Bury that loop under sign-off chains and a forty-reply Slack thread and you've killed the one thing you hired me for. I'm not asking to go rogue. I'm asking for enough rope to test before the moment's gone.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">02</span>
-        <div>
-          <h3>I'm a bad fit if you want your opinions repeated back to you.</h3>
-          <p>When an angle's going to bleed your budget, you'll hear it from me before the money's gone, direct, not difficult. And I won't put my name on creative for a product I wouldn't hand to a friend. If you need a quiet pair of hands to run with whatever the room decided, that's a real role. Just not one I'd do well.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step-num">03</span>
-        <div>
-          <h3>If a stack of agency titles is what makes you comfortable, I'll come up short.</h3>
-          <p>No decade of logos behind me, no "Senior" in front of my name. What you get instead is someone who shows up with ideas you didn't ask for and has already torn apart your current ads before our first call. This isn't a comfortable lateral move for me. It's the thing I'm out to prove. If you'd feel safer with someone resting on a résumé, hire them.</p>
-        </div>
-      </li>
-    </ol>
+<main id="top">
 
-    <p class="reasons-close">None of that scared you off? <span class="accent">Good.</span> Here's how I'd prove it without making you sit through an interview.</p>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Creative strategist for DTC brands</p>
+    <h1>A steady pipeline of Meta ads worth <span class="accent">testing</span>.</h1>
+    <p class="lead">I turn customer research, account data, and your winning creative into a constant flow of ad concepts, hooks, scripts, statics, and AI-video ads, then let the numbers decide what earns another round.</p>
+    <div class="hero-actions">
+      <a class="btn" href="[CALENDLY LINK]">Book a call &rarr;</a>
+      <a class="btn btn--ghost" href="#offers">See the offers</a>
+    </div>
+    <p class="hero-note">Start with a 3-hook test against your current best ad. No retainer required.</p>
   </div>
 </header>
 
-<main>
-
-<!-- ============ THE OFFER ============ -->
-<section class="section offer-hero" id="offer">
+<!-- ============ PROOF STRIP ============ -->
+<section class="proof" aria-label="Proof">
   <div class="wrap">
-    <h2 class="hook-headline">Give me 7 days and I'll <span class="accent">out-run</span> your best ad or it costs you nothing.</h2>
+    <div class="proof-grid">
+      <div>
+        <p class="stat-num">40.8<span class="accent">%</span></p>
+        <p class="stat-label">New-visitor rate from a live Meta test</p>
+      </div>
+      <div>
+        <p class="stat-num">700K<span class="accent">+</span></p>
+        <p class="stat-label">Lifetime YouTube views, built organically</p>
+      </div>
+      <div>
+        <p class="stat-num">42K</p>
+        <p class="stat-label">Views on the top clip, $0 ad spend</p>
+      </div>
+      <div>
+        <p class="stat-num">91<span class="accent">%+</span></p>
+        <p class="stat-label">Like ratio across 800+ subscribers</p>
+      </div>
+    </div>
+    <div class="clients">
+      <strong>Freelance creative strategy for</strong>
+      <ul>
+        <li>Tailored Canvases</li>
+        <li>WonderMe</li>
+        <li>Tell My Tale</li>
+        <li>Sean Ferres</li>
+        <li>Auna Beauty</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <p class="lede">Be honest, you've probably waded through a pile of "hardworking team player, passionate about marketing" applications this week and couldn't name one an hour later. None of them sounded like a person. This one will, so stick with me for thirty seconds.</p>
+<!-- ============ WHAT I DO ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <p class="eyebrow">What I do</p>
+    <h2 class="h2">Research in. Shippable creative out.</h2>
+    <div class="grid-3">
+      <article class="card">
+        <p class="card-num">01</p>
+        <h3>Customer &amp; account research</h3>
+        <p>I dig through reviews, comments, competitors, and your ad account before I write a word, so every concept starts from what buyers actually say and what your data is already telling us.</p>
+      </article>
+      <article class="card">
+        <p class="card-num">02</p>
+        <h3>Concepts, hooks &amp; scripts</h3>
+        <p>New angles, hooks, and scripts built to be tested, not admired. Clear briefs your editors can run with, and direction through to the final cut.</p>
+      </article>
+      <article class="card">
+        <p class="card-num">03</p>
+        <h3>Statics &amp; AI-video ads</h3>
+        <p>Formats that match the idea: scroll-stopping statics, UGC-style scripts, and AI-video ads, so you can test more variations without a full production shoot every time.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <p class="body-text"><strong>The deal is dead simple:</strong> hand me whatever ad is performing best for you right now, and I'll rebuild it three different ways using the exact process behind everything I make.</p>
+<!-- ============ FOOT-IN-THE-DOOR OFFER ============ -->
+<section class="section section--tint" id="offers">
+  <div class="wrap">
+    <div class="offer">
+      <div class="offer-body">
+        <span class="tag">Start here</span>
+        <h2>The 3-Hook Control Challenge</h2>
+        <p style="margin-top: 20px;">Give me your current best-performing ad and I&rsquo;ll build 3 challengers to run against it.</p>
+        <p>Same product, same audience, same budget. The only variable is the creative, so the result is clean.</p>
+        <p class="guarantee"><strong>If mine lose,</strong> I&rsquo;ll use the same test budget to run a Meta ad embarrassing myself for you.</p>
+      </div>
+      <div>
+        <ul class="terms">
+          <li><span>You provide</span><span>Your current control ad</span></li>
+          <li><span>I deliver</span><span>3 challenger hooks</span></li>
+          <li><span>The test</span><span>Head-to-head on Meta</span></li>
+          <li><span>If I lose</span><span>Public, paid-for humility</span></li>
+        </ul>
+        <a class="btn" href="[CALENDLY LINK]" style="margin-top: 28px; width: 100%;">Challenge my control &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <blockquote class="callout-quote">
-      If my hooks don't beat your control in 7 days, I'll Venmo you $50 and never contact you again. Not because I can afford to lose $50. Because I can't afford to waste your time or mine.
-    </blockquote>
+<!-- ============ RETAINER OFFER ============ -->
+<section class="section" id="retainer">
+  <div class="wrap">
+    <div class="offer offer--feature">
+      <div class="offer-body">
+        <span class="tag">Ongoing</span>
+        <h2>The Creative Strategy Retainer</h2>
+        <p style="margin-top: 20px;">I develop <strong style="color: var(--ink);">10 new ad concepts every week</strong>, watch what the account is telling us, cut weak ideas, and keep iterating on the hooks, angles, and formats showing the most promise.</p>
+        <p>You get a creative pipeline that never runs dry, and someone who&rsquo;s paying attention to what&rsquo;s actually working.</p>
+      </div>
+      <div>
+        <p class="price">$5&ndash;8K <small>/ month</small></p>
+        <ul class="terms" style="margin-top: 24px;">
+          <li><span>New concepts</span><span>10 per week</span></li>
+          <li><span>Formats</span><span>Hooks, scripts, statics, AI video</span></li>
+          <li><span>Account review</span><span>Ongoing</span></li>
+          <li><span>Iteration</span><span>Every week</span></li>
+        </ul>
+        <a class="btn" href="[CALENDLY LINK]" style="margin-top: 28px; width: 100%;">Book a call &rarr;</a>
+      </div>
+    </div>
 
-    <h3 class="section-title">Where do I get the nerve to promise that?</h3>
-    <p class="body-text">Because I'm not guessing. While most people throw spaghetti at the algorithm and pray, every ad I write moves through the same three stages:</p>
+    <div class="upsell">
+      <p class="eyebrow" style="margin: 0;">Add-on</p>
+      <h3>Creative Strategy + Media Buying</h3>
+      <p>I can take the work from concept through launch in Meta Ads Manager, monitor approvals and performance, and use the data coming back to shape the next round of creative. One person owns the loop from idea to result.</p>
+    </div>
+  </div>
+</section>
 
+<!-- ============ PROCESS ============ -->
+<section class="section section--tint" id="process">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 class="h2">Three steps, on repeat.</h2>
     <ol class="steps">
       <li>
-        <span class="step-num">01</span>
-        <div>
-          <h3>Listen first.</h3>
-          <p>I dig through the places your buyers speak freely: the one- and five-star reviews, Reddit threads, the comments your team scrolls past, and lift the exact phrases they use when nobody's pitching them. By the time I write a word, I already know what moves them.</p>
-        </div>
+        <span class="step-num">Step 01</span>
+        <h3>Dig in</h3>
+        <p>Before our first call I&rsquo;ve already been through your ads, your reviews, and your competitors. I show up with ideas, not questions you&rsquo;ve answered ten times.</p>
       </li>
       <li>
-        <span class="step-num">02</span>
-        <div>
-          <h3>Engineer the hook.</h3>
-          <p>That real customer language goes into AI tooling I've dialed in specifically for ad writing, and out come hooks that land like they were pulled straight from your buyer's own head, not warmed-over lines half your competitors are already running.</p>
-        </div>
+        <span class="step-num">Step 02</span>
+        <h3>Build &amp; ship</h3>
+        <p>Concepts, hooks, scripts, and statics, briefed tightly, directed through editing, and pushed live. Ideas only count once they&rsquo;re in the account.</p>
       </li>
       <li>
-        <span class="step-num">03</span>
-        <div>
-          <h3>Build the stopper.</h3>
-          <p>The strongest hook becomes a finished static or AI-video ad that's almost annoying to scroll past, made from footage you already own, ready to launch the same day I hand it over.</p>
-        </div>
+        <span class="step-num">Step 03</span>
+        <h3>Read, cut, iterate</h3>
+        <p>The numbers decide. Weak ideas get cut fast, promising angles get more rounds, and every result feeds the next batch.</p>
       </li>
     </ol>
-
-    <p class="body-text offer-close">Notice I'm not starting from scratch. I take the ad already pulling its weight and drop a stronger engine under the hood. A little unfair to whoever you're up against, but that's on them.</p>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ============ EXHIBIT A ============ -->
-<section class="section" id="exhibit">
+<!-- ============ PORTFOLIO CAROUSEL ============ -->
+<section class="section" id="work" style="padding-bottom: calc(var(--space) - 24px);">
   <div class="wrap">
-    <div class="exhibit-head">
-      <h2 class="section-title">Exhibit A</h2>
-      <p class="exhibit-source">YouTube &middot; @billionairehustler</p>
-    </div>
-
-    <div class="exhibit-panel">
-      <div class="bar-row">
-        <div class="bar-figure">42,606</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-        <div class="bar-meta">91% like ratio</div>
+    <p class="eyebrow">Selected work</p>
+    <h2 class="h2">Ads I&rsquo;ve briefed, directed, and shipped.</h2>
+    <p class="carousel-hint">Swipe or scroll sideways &rarr;</p>
+  </div>
+  <div class="carousel" role="region" aria-label="Ad portfolio" tabindex="0">
+    <article class="slide">
+      <div class="slide-media">
+        <video controls muted playsinline preload="none" poster="assets/img/tellmytale-poster.jpg">
+          <source src="assets/video/tellmytale.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="bar-row">
-        <div class="bar-figure">30,516</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
-        <div class="bar-meta">91.7% like ratio</div>
+      <div class="slide-info">
+        <p class="slide-client">Tell My Tale</p>
+        <p class="slide-desc">Brief &rarr; editor direction &rarr; live on Meta</p>
       </div>
-      <div class="bar-row">
-        <div class="bar-figure">18,205</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 43%;"></div></div>
-        <div class="bar-meta">92.3% like ratio</div>
+    </article>
+    <article class="slide">
+      <div class="slide-media">
+        <video controls muted playsinline preload="none" poster="assets/img/wonderme-blue-poster.jpg">
+          <source src="assets/video/wonderme-blue.mp4" type="video/mp4">
+        </video>
       </div>
-      <p class="bar-caption">Top 3 organic clips &middot; $0 ad spend</p>
-    </div>
-
-    <div class="stat-grid">
-      <div class="stat-card"><p class="stat-num">700K<span class="accent">+</span></p><p class="stat-label">Lifetime views</p></div>
-      <div class="stat-card"><p class="stat-num">800<span class="accent">+</span></p><p class="stat-label">Subscribers</p></div>
-      <div class="stat-card"><p class="stat-num">91<span class="accent">%</span></p><p class="stat-label">Like ratio, top clip</p></div>
-    </div>
-
-    <p class="body-text italic-note">Built without a following, a budget, or a team. Just an eye for what makes people stop scrolling. That's the instinct I'd bring to your creative.</p>
-
-    <h3 class="section-title" style="margin-top: 56px;">Here's how it works</h3>
-    <div class="day-grid">
-      <div class="day-card"><p class="day-label">Day 1</p><p>You hand over your top-performing ad.</p></div>
-      <div class="day-card"><p class="day-label">Day 2</p><p>Three new hooks land in your inbox, each run through all three stages.</p></div>
-      <div class="day-card"><p class="day-label">Days 3&ndash;9</p><p>We put them live and see whether they take down your old champion.</p></div>
-    </div>
-    <p class="body-text">We clone your winning campaign and run my versions next to your original under identical conditions. Whoever posts the better number wins, and you pick the number that matters: ROAS, CAC, CPL, or hook rate.</p>
+      <div class="slide-info">
+        <p class="slide-client">WonderMe <em>Concept 01</em></p>
+        <p class="slide-desc">Brief &rarr; editor direction &rarr; live on Meta</p>
+      </div>
+    </article>
+    <article class="slide">
+      <div class="slide-media">
+        <video controls muted playsinline preload="none" poster="assets/img/wonderme-gold-poster.jpg">
+          <source src="assets/video/wonderme-gold.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slide-info">
+        <p class="slide-client">WonderMe <em>Concept 02</em></p>
+        <p class="slide-desc">Brief &rarr; editor direction &rarr; live on Meta</p>
+      </div>
+    </article>
+    <article class="slide">
+      <div class="slide-media slide-media--brief">
+        <p class="brief-label">Creative brief &middot; Excerpt</p>
+        <p class="brief-line"><span>Hook</span>The gift she didn&rsquo;t just open. She kept it.</p>
+        <p class="brief-line"><span>Angle</span>Unboxing-first, product texture on camera, no VO.</p>
+        <p class="brief-line"><span>Format</span>Vertical, 15s, Meta placement.</p>
+      </div>
+      <div class="slide-info">
+        <p class="slide-client">Tailored Canvases</p>
+        <p class="slide-desc">Brief &rarr; editor direction &rarr; live on Meta</p>
+      </div>
+    </article>
+    <!-- TODO: add Sean Ferres and Auna Beauty ads here (copy a .slide block, swap poster + video) -->
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ============ WHAT THIS COSTS YOU ============ -->
-<section class="section" id="cost">
-  <div class="wrap">
-    <h2 class="section-title">What this costs you</h2>
-    <p class="body-text">Nothing. This runs entirely on my clock as a live audition. If my versions come out ahead, we have a conversation about the role. If they fall short, the hooks are yours to keep, plus that full competitor teardown for your trouble.</p>
-    <p class="body-text"><strong>One honest caveat:</strong> I only run this for a handful of brands whose product I'd actually use myself, not as some manufactured scarcity trick, but because each one means living inside your market for a week, and that focus doesn't stretch across a dozen at a time.</p>
-  </div>
-
-  <div class="cta-block" id="cta">
-    <div class="wrap cta-inner">
-      <p class="cta-label">Next steps</p>
-      <p class="cta-lead">Just reply "I'm in" and I'll send over a 60-second form so I know which ad to chase. Three fresh hooks are back to you inside 24&ndash;48 hours, and the test runs from there.</p>
-      <hr class="cta-divider">
-      <p><strong>If it flops:</strong> the hooks are yours and $50 hits your Venmo.</p>
-      <p><strong>If it lands:</strong> you've got versions of your winner that beat the original, and room to scale it harder before it burns out.</p>
-      <p class="cta-ps">P.S. if you made it this far, you're either genuinely curious or genuinely bored. Either way, that's exactly the problem my hooks solve.</p>
-      <a href="mailto:dylan@dylanescobar.com?subject=I%27m%20in" class="btn btn-cta">Dylan &middot; dylan@dylanescobar.com</a>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ============ BIO ============ -->
-<section class="section" id="bio">
-  <div class="wrap bio-grid">
-    <img class="bio-photo" src="assets/img/dylan-headshot.jpg" alt="Dylan Escobar">
-    <div class="bio-text">
-      <h2 class="bio-name">Dylan Escobar</h2>
-      <p class="bio-meta">
-        <span class="accent">Creative Strategist</span>
-        <span>dylan@dylanescobar.com</span>
-        <span>Eagle Scout</span>
-        <a href="#experience">Portfolio</a>
-      </p>
-      <p class="num-label" style="margin-top: 36px;">What I do</p>
-      <ul class="what-i-do">
-        <li>Meta ads</li>
-        <li>creative strategy</li>
-        <li>hook &amp; script writing</li>
-        <li>static + AI-video ads</li>
-        <li>ad research</li>
+<!-- ============ ABOUT ============ -->
+<section class="section section--tint" id="about">
+  <div class="wrap about">
+    <img class="about-photo" src="assets/img/dylan-headshot.jpg" alt="Dylan Escobar" loading="lazy">
+    <div class="about-copy">
+      <p class="eyebrow">About</p>
+      <p>I&rsquo;m a creative strategist who likes moving fast, getting close to the customer, and letting the numbers decide what deserves another round.</p>
+      <p>I&rsquo;ll dig into the ads before the first call, bring ideas before I&rsquo;m asked, and tell you when I think an angle is weak, because I&rsquo;d rather have <span class="accent">one mildly awkward Slack conversation</span> than watch a bad idea eat budget for a week.</p>
+      <p class="quiet">Before client work, I built a YouTube channel to 700K+ views with no budget and no team, just a lot of reps on what makes people stop scrolling.</p>
+      <ul class="traits">
+        <li>Fast over precious</li>
+        <li>Customer-obsessed</li>
+        <li>Data decides</li>
+        <li>Honest about weak angles</li>
       </ul>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ============ EXPERIENCE ============ -->
-<section class="section" id="experience">
+<!-- ============ TESTIMONIALS ============ -->
+<!-- Placeholders: replace with real quotes (with permission) before publishing. -->
+<section class="section" id="testimonials">
   <div class="wrap">
-    <p class="num-label">Experience</p>
-
-    <div class="exp-role">
-      <h3>Creative Strategist <span class="exp-type">Freelance / Contract</span></h3>
-      <p class="exp-clients">Tailored Canvases &middot; WonderMe &middot; Tell My Tale</p>
-      <ul class="exp-bullets">
-        <li>Wrote creative briefs and directed editors from concept to launch: owning the idea, the angle, and the hand-off, then getting work approved and shipped live.</li>
-        <li>Ran the real creative-strategist loop end to end: research, brief, direct, review, iterate, working hand-in-hand with editors to get ads out the door.</li>
-      </ul>
+    <p class="eyebrow">Kind words</p>
+    <h2 class="h2">What clients say.</h2>
+    <div class="grid-3">
+      <figure class="card quote">
+        <blockquote class="placeholder">[Testimonial 1: a specific result or behaviour, e.g. speed, ideas brought unprompted, a winning concept.]</blockquote>
+        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
+      </figure>
+      <figure class="card quote">
+        <blockquote class="placeholder">[Testimonial 2: what working together is like week to week.]</blockquote>
+        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
+      </figure>
+      <figure class="card quote">
+        <blockquote class="placeholder">[Testimonial 3: the honesty angle, a time pushback saved budget.]</blockquote>
+        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
+      </figure>
     </div>
   </div>
+</section>
 
+<!-- ============ FINAL CTA ============ -->
+<section class="final section--tint" id="book">
   <div class="wrap">
-    <p class="body-text proof-intro" style="margin-top: 48px;">Ads tested in-market for those three clients. Hover any card to hold it in place.</p>
-  </div>
-
-  <div class="strip-viewport">
-    <div class="strip-track" id="stripTrack">
-      <!-- Card 1: TellMyTale -->
-      <article class="proof-card">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/tellmytale-poster.jpg">
-            <source src="assets/video/tellmytale.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">TellMyTale</p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta, $330 spend</p>
-        </div>
-      </article>
-
-      <!-- Card 2: WonderMe (blue) -->
-      <article class="proof-card">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/wonderme-blue-poster.jpg">
-            <source src="assets/video/wonderme-blue.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">WonderMe <span class="card-tag">Concept 01</span></p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-
-      <!-- Card 3: WonderMe (gold) -->
-      <article class="proof-card">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/wonderme-gold-poster.jpg">
-            <source src="assets/video/wonderme-gold.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">WonderMe <span class="card-tag">Concept 02</span></p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-
-      <!-- Card 4: Tailored Canvases (brief excerpt, no video) -->
-      <article class="proof-card proof-card--brief">
-        <div class="card-media card-media--brief">
-          <div class="brief-excerpt">
-            <p class="brief-label">Creative Brief &middot; Excerpt</p>
-            <p class="brief-line"><span>Hook</span>The gift she didn't just open. She kept it.</p>
-            <p class="brief-line"><span>Angle</span>Unboxing-first, product texture on camera, no VO.</p>
-            <p class="brief-line"><span>Format</span>Vertical, 15s, Meta placement.</p>
-          </div>
-        </div>
-        <div class="card-info">
-          <p class="card-client">Tailored Canvases</p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-
-      <!-- duplicate set for seamless loop -->
-      <article class="proof-card" aria-hidden="true">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/tellmytale-poster.jpg">
-            <source src="assets/video/tellmytale.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">TellMyTale</p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta, $330 spend</p>
-        </div>
-      </article>
-
-      <article class="proof-card" aria-hidden="true">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/wonderme-blue-poster.jpg">
-            <source src="assets/video/wonderme-blue.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">WonderMe <span class="card-tag">Concept 01</span></p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-
-      <article class="proof-card" aria-hidden="true">
-        <div class="card-media">
-          <video muted loop playsinline preload="metadata" poster="assets/img/wonderme-gold-poster.jpg">
-            <source src="assets/video/wonderme-gold.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="card-info">
-          <p class="card-client">WonderMe <span class="card-tag">Concept 02</span></p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-
-      <article class="proof-card proof-card--brief" aria-hidden="true">
-        <div class="card-media card-media--brief">
-          <div class="brief-excerpt">
-            <p class="brief-label">Creative Brief &middot; Excerpt</p>
-            <p class="brief-line"><span>Hook</span>The gift she didn't just open. She kept it.</p>
-            <p class="brief-line"><span>Angle</span>Unboxing-first, product texture on camera, no VO.</p>
-            <p class="brief-line"><span>Format</span>Vertical, 15s, Meta placement.</p>
-          </div>
-        </div>
-        <div class="card-info">
-          <p class="card-client">Tailored Canvases</p>
-          <p class="card-brief">Wrote creative brief &rarr; reviewed and approved editor's cut &rarr; published live on Meta</p>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="exp-role" style="margin-top: 56px;">
-      <h3>Founder <span class="exp-type">Motivational Clipping Channel</span></h3>
-      <p class="exp-clients">YouTube &middot; @billionairehustler</p>
-      <ul class="exp-bullets">
-        <li>Built a channel from scratch to 800+ subscribers and 700,000+ lifetime views: top video at more than 42,000 views purely off hook, pacing, and packaging.</li>
-        <li>Ran my own creative feedback loop daily: test hooks, read retention, recut, repost, repeat. The exact instinct that beats ad controls.</li>
-      </ul>
-    </div>
-
-    <p class="num-label" style="margin-top: 56px;">Proof</p>
-    <div class="stat-grid">
-      <div class="stat-card"><p class="stat-num">700K<span class="accent">+</span></p><p class="stat-label">Lifetime organic views, $0 spend</p></div>
-      <div class="stat-card"><p class="stat-num">42<span class="accent">K</span></p><p class="stat-label">Top single clip, no budget</p></div>
-      <div class="stat-card"><p class="stat-num">40.80<span class="accent">%</span></p><p class="stat-label">New-visitor rate, live Meta test</p></div>
-    </div>
-
-    <p class="body-text italic-note">1.5 ROAS. I don't just hit the number, I read what's underneath it.</p>
-
-    <p class="final-cta">Reply to <a href="mailto:dylan@dylanescobar.com">dylan@dylanescobar.com</a> and I'll start on your control this week.</p>
+    <p class="eyebrow">Let&rsquo;s talk</p>
+    <h2 class="h2">Send me your best ad. I&rsquo;ll bring three that want its job.</h2>
+    <p class="lead">A 20-minute call to look at your account, your control, and whether we&rsquo;re a fit. You&rsquo;ll leave with ideas either way.</p>
+    <a class="btn" href="[CALENDLY LINK]">Book a call on Calendly &rarr;</a>
   </div>
 </section>
 
 </main>
 
-<footer class="footer">
+<footer>
   <div class="wrap">
-    <p>Dylan Escobar &middot; Creative Strategist</p>
+    <span>&copy; 2026 Dylan Escobar &middot; Creative Strategist</span>
+    <a href="mailto:dylan@dylanescobar.com">dylan@dylanescobar.com</a>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script>
+  // Smooth scroll for in-page links (CSS handles most browsers; this covers the rest).
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+</script>
 </body>
 </html>

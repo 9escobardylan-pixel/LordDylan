@@ -80,15 +80,48 @@
   .nav-links a:hover { color: var(--ink); }
 
   /* Hero */
-  .hero { padding: 72px 0 64px; }
-  .hero h1 { font-size: clamp(38px, 8vw, 72px); max-width: 16ch; }
+  .hero {
+    padding: 56px 0 72px; overflow: hidden;
+    background-image: radial-gradient(circle at 1px 1px, rgba(17,17,17,.07) 1px, transparent 0);
+    background-size: 22px 22px;
+    background-position: center top;
+  }
+  .hero-grid { display: grid; gap: 48px; align-items: center; }
+  .hero h1 { font-size: clamp(38px, 8vw, 68px); max-width: 15ch; }
   .hero .lead { margin-top: 24px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-  .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-3); }
+  .hero-note { margin-top: 18px; font-size: 14px; color: var(--ink-3); display: flex; align-items: center; gap: 8px; }
+  .hero-note::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,.15); flex: none; }
+
+  /* Hero ad stack */
+  .ad-stack { position: relative; height: 360px; max-width: 420px; margin: 0 auto; width: 100%; }
+  .phone {
+    position: absolute; top: 0; width: 46%; aspect-ratio: 9 / 16;
+    border-radius: 22px; overflow: hidden; background: #111;
+    border: 5px solid #111;
+    box-shadow: 0 30px 60px -20px rgba(17,17,17,.35), 0 8px 20px -8px rgba(17,17,17,.2);
+  }
+  .phone img { width: 100%; height: 100%; object-fit: cover; }
+  .phone:nth-child(1) { left: 0; top: 36px; transform: rotate(-7deg); }
+  .phone:nth-child(2) { left: 27%; z-index: 2; }
+  .phone:nth-child(3) { right: 0; top: 36px; transform: rotate(7deg); }
+  .phone-label {
+    position: absolute; left: 10px; bottom: 10px; font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,.92); color: var(--ink); padding: 4px 9px; border-radius: 999px;
+  }
+  .live-pill {
+    position: absolute; z-index: 3; left: 50%; bottom: -8px; transform: translateX(-50%);
+    background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 14px; font-size: 13px; font-weight: 600; white-space: nowrap;
+    box-shadow: 0 10px 24px -10px rgba(17,17,17,.25);
+  }
+  .live-pill span { color: var(--accent); }
 
   /* Proof strip */
   .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0; }
   .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .proof-grid > div { padding-left: 16px; border-left: 2px solid var(--line); }
+  .proof-grid > div:first-child { border-left-color: var(--accent); }
   .stat-num { font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
   .stat-label { font-size: 14px; color: var(--ink-2); margin-top: 8px; line-height: 1.4; }
   .clients { margin-top: 32px; padding-top: 24px; border-top: 1px dashed var(--line); font-size: 14px; color: var(--ink-2); }
@@ -100,7 +133,14 @@
   .card {
     background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 28px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
+  .card:hover { transform: translateY(-3px); border-color: #d6d3ce; box-shadow: 0 18px 40px -24px rgba(17,17,17,.3); }
+  .icon {
+    width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+    background: #fbeee7; color: var(--accent);
+  }
+  .icon svg { width: 22px; height: 22px; }
   .card-num { font-size: 13px; font-weight: 600; color: var(--ink-3); letter-spacing: .08em; }
   .card h3 { font-size: 22px; margin: 14px 0 10px; }
   .card p { color: var(--ink-2); font-size: 16px; }
@@ -113,7 +153,14 @@
     border: 1px solid var(--line); border-radius: calc(var(--radius) + 6px);
     padding: 32px 24px; background: var(--bg);
   }
-  .offer--feature { border-color: var(--ink); }
+  .offer--start { border-top: 4px solid var(--accent); }
+  .offer--feature { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .offer--feature .offer-body p { color: #c9c9c9; }
+  .offer--feature .offer-body strong { color: #fff; }
+  .offer.offer--feature .tag { background: rgba(255,255,255,.1); color: #e5e5e5; }
+  .offer--feature .terms, .offer--feature .terms li { border-color: rgba(255,255,255,.14); }
+  .offer--feature .terms li span:first-child { color: #9a9a9a; }
+  .offer--feature .price small { color: #9a9a9a; }
   .offer h2 { font-size: clamp(28px, 4.6vw, 40px); }
   .offer .tag {
     display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
@@ -183,11 +230,8 @@
   .traits li { font-size: 14px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); }
 
   /* Testimonials */
-  .quote { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
-  .quote blockquote { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
-  .quote figcaption { font-size: 14px; color: var(--ink-3); }
-  .quote figcaption strong { display: block; color: var(--ink); font-weight: 600; }
-  .placeholder { color: var(--ink-3); font-style: italic; }
+  .promise .card { display: flex; flex-direction: column; gap: 12px; }
+  .promise .card h3 { margin: 6px 0 0; }
 
   /* Final CTA */
   .final { text-align: center; padding: calc(var(--space) + 16px) 0; }
@@ -208,12 +252,15 @@
     .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .steps li, .steps li:last-child { border-bottom: 0; border-top: 2px solid var(--ink); padding-top: 24px; }
     .offer { padding: 48px; }
+    .ad-stack { height: 440px; }
   }
 
   /* ---------- Desktop ---------- */
   @media (min-width: 960px) {
     .nav-links { display: flex; }
-    .hero { padding: 120px 0 104px; }
+    .hero { padding: 96px 0 104px; }
+    .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 64px; }
+    .ad-stack { height: 500px; max-width: 460px; }
     .offer { grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
     .carousel {
       grid-auto-columns: calc((min(100vw, var(--wrap)) - 2 * var(--gutter) - 3 * 16px) / 4);
@@ -246,15 +293,23 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Creative strategist for DTC brands</p>
-    <h1>A steady pipeline of Meta ads worth <span class="accent">testing</span>.</h1>
-    <p class="lead">I turn customer research, account data, and your winning creative into a constant flow of ad concepts, hooks, scripts, statics, and AI-video ads, then let the numbers decide what earns another round.</p>
-    <div class="hero-actions">
-      <a class="btn" href="[CALENDLY LINK]">Book a call &rarr;</a>
-      <a class="btn btn--ghost" href="#offers">See the offers</a>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Creative strategist for DTC brands</p>
+      <h1>A steady pipeline of Meta ads worth <span class="accent">testing</span>.</h1>
+      <p class="lead">I turn customer research, account data, and your winning creative into a constant flow of ad concepts, hooks, scripts, statics, and AI-video ads, then let the numbers decide what earns another round.</p>
+      <div class="hero-actions">
+        <a class="btn" href="[CALENDLY LINK]">Challenge my best ad &rarr;</a>
+        <a class="btn btn--ghost" href="#offers">How the challenge works</a>
+      </div>
+      <p class="hero-note">Start with 3 hooks against your current winner. No retainer required.</p>
     </div>
-    <p class="hero-note">Start with a 3-hook test against your current best ad. No retainer required.</p>
+    <div class="ad-stack" aria-hidden="true">
+      <div class="phone"><img src="assets/img/wonderme-blue-poster.jpg" alt=""><span class="phone-label">WonderMe</span></div>
+      <div class="phone"><img src="assets/img/tellmytale-poster.jpg" alt=""><span class="phone-label">Tell My Tale</span></div>
+      <div class="phone"><img src="assets/img/wonderme-gold-poster.jpg" alt=""><span class="phone-label">WonderMe</span></div>
+      <p class="live-pill"><span>&#9679;</span> Briefed, directed &amp; shipped live on Meta</p>
+    </div>
   </div>
 </header>
 
@@ -263,20 +318,20 @@
   <div class="wrap">
     <div class="proof-grid">
       <div>
+        <p class="stat-num">5</p>
+        <p class="stat-label">DTC brands: briefs, editor direction, and ads shipped live</p>
+      </div>
+      <div>
         <p class="stat-num">40.8<span class="accent">%</span></p>
         <p class="stat-label">New-visitor rate from a live Meta test</p>
       </div>
       <div>
         <p class="stat-num">700K<span class="accent">+</span></p>
-        <p class="stat-label">Lifetime YouTube views, built organically</p>
-      </div>
-      <div>
-        <p class="stat-num">42K</p>
-        <p class="stat-label">Views on the top clip, $0 ad spend</p>
+        <p class="stat-label">Organic YouTube views, 42K on the top clip, $0 spend</p>
       </div>
       <div>
         <p class="stat-num">91<span class="accent">%+</span></p>
-        <p class="stat-label">Like ratio across 800+ subscribers</p>
+        <p class="stat-label">Like ratio: people didn&rsquo;t just watch, they liked it</p>
       </div>
     </div>
     <div class="clients">
@@ -299,17 +354,17 @@
     <h2 class="h2">Research in. Shippable creative out.</h2>
     <div class="grid-3">
       <article class="card">
-        <p class="card-num">01</p>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
         <h3>Customer &amp; account research</h3>
         <p>I dig through reviews, comments, competitors, and your ad account before I write a word, so every concept starts from what buyers actually say and what your data is already telling us.</p>
       </article>
       <article class="card">
-        <p class="card-num">02</p>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
         <h3>Concepts, hooks &amp; scripts</h3>
         <p>New angles, hooks, and scripts built to be tested, not admired. Clear briefs your editors can run with, and direction through to the final cut.</p>
       </article>
       <article class="card">
-        <p class="card-num">03</p>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></span>
         <h3>Statics &amp; AI-video ads</h3>
         <p>Formats that match the idea: scroll-stopping statics, UGC-style scripts, and AI-video ads, so you can test more variations without a full production shoot every time.</p>
       </article>
@@ -320,7 +375,7 @@
 <!-- ============ FOOT-IN-THE-DOOR OFFER ============ -->
 <section class="section section--tint" id="offers">
   <div class="wrap">
-    <div class="offer">
+    <div class="offer offer--start">
       <div class="offer-body">
         <span class="tag">Start here</span>
         <h2>The 3-Hook Control Challenge</h2>
@@ -348,7 +403,7 @@
       <div class="offer-body">
         <span class="tag">Ongoing</span>
         <h2>The Creative Strategy Retainer</h2>
-        <p style="margin-top: 20px;">I develop <strong style="color: var(--ink);">10 new ad concepts every week</strong>, watch what the account is telling us, cut weak ideas, and keep iterating on the hooks, angles, and formats showing the most promise.</p>
+        <p style="margin-top: 20px;">I develop <strong>10 new ad concepts every week</strong>, watch what the account is telling us, cut weak ideas, and keep iterating on the hooks, angles, and formats showing the most promise.</p>
         <p>You get a creative pipeline that never runs dry, and someone who&rsquo;s paying attention to what&rsquo;s actually working.</p>
       </div>
       <div>
@@ -473,24 +528,29 @@
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
-<!-- Placeholders: replace with real quotes (with permission) before publishing. -->
-<section class="section" id="testimonials">
+<!-- No client quotes yet. When you get real ones (with permission), swap these cards for
+     <figure class="card"><blockquote>…</blockquote><figcaption>Name, Role, Brand</figcaption></figure> -->
+<section class="section promise" id="testimonials">
   <div class="wrap">
-    <p class="eyebrow">Kind words</p>
-    <h2 class="h2">What clients say.</h2>
+    <p class="eyebrow">In place of testimonials</p>
+    <h2 class="h2">No wall of quotes yet. So here&rsquo;s what I put on the line.</h2>
+    <p class="lead">I&rsquo;d rather earn a testimonial from you than borrow credibility I haven&rsquo;t built. Here&rsquo;s what you can hold me to.</p>
     <div class="grid-3">
-      <figure class="card quote">
-        <blockquote class="placeholder">[Testimonial 1: a specific result or behaviour, e.g. speed, ideas brought unprompted, a winning concept.]</blockquote>
-        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
-      </figure>
-      <figure class="card quote">
-        <blockquote class="placeholder">[Testimonial 2: what working together is like week to week.]</blockquote>
-        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
-      </figure>
-      <figure class="card quote">
-        <blockquote class="placeholder">[Testimonial 3: the honesty angle, a time pushback saved budget.]</blockquote>
-        <figcaption><strong>[Name]</strong>[Role, Brand]</figcaption>
-      </figure>
+      <article class="card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>Ideas before the first call</h3>
+        <p>I&rsquo;ll have been through your ads, reviews, and competitors before we talk. If I show up empty-handed, don&rsquo;t book a second call.</p>
+      </article>
+      <article class="card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>A clean head-to-head test</h3>
+        <p>Three challengers against your control, same conditions. If mine lose, I run a Meta ad embarrassing myself.</p>
+      </article>
+      <article class="card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>The honest read, every time</h3>
+        <p>If an angle is weak, you&rsquo;ll hear it from me before it eats a week of budget. One mildly awkward Slack beats a quiet loss.</p>
+      </article>
     </div>
   </div>
 </section>
